@@ -1,0 +1,41 @@
+plugins {
+    id 'maven'
+    id 'java-library'
+}
+
+group 'com.github.serezhka'
+version '1.0.0'
+
+sourceCompatibility = 1.9
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+wrapper {
+    gradleVersion = '6.6.1'
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+task fatJar(type: Jar) {
+    classifier = 'all'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarSources(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jarSources
+}

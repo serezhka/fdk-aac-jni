@@ -17,7 +17,7 @@ unsigned char *as_unsigned_char_array(JNIEnv *env, jbyteArray array) {
     return buffer;
 }
 
-JNIEXPORT void JNICALL Java_com_github_serezhka_jap2server_internal_handler_audio_AudioHandler_init() {
+JNIEXPORT void JNICALL Java_com_github_serezhka_fdkaacjni_FdkAacLib_init() {
     unsigned char *tmp = (unsigned char *) malloc(16);
     fprintf(stderr, "[libfdk-aac]: Init %s\n", tmp);
 
@@ -51,7 +51,7 @@ JNIEXPORT void JNICALL Java_com_github_serezhka_jap2server_internal_handler_audi
     fflush(stderr);
 }
 
-JNIEXPORT void JNICALL Java_com_github_serezhka_jap2server_internal_handler_audio_AudioHandler_decodeFrame
+JNIEXPORT void JNICALL Java_com_github_serezhka_fdkaacjni_FdkAacLib_decodeFrame
         (JNIEnv *env, jobject object, jbyteArray input, jbyteArray output) {
 
     int input_size = (*env)->GetArrayLength(env, input);

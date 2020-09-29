@@ -1,2 +1,10 @@
+.gradle
+gradlew
+gradlew.bat
+gradle/wrapper/*
+!gradle/wrapper/gradle-wrapper.properties
 .idea
+out
+build
 cmake-build-debug
+.dll
